@@ -174,6 +174,7 @@ object FormTesteProgramadorDelphi: TFormTesteProgramadorDelphi
       Category = 'SQL'
       Caption = 'Desafio com StoredProcedure'
       Hint = 'Habilidade de trabalhar com StoredProcedure no banco de dados.'
+      OnExecute = Action_Sql_3_StoredProcedureExecute
     end
     object Action_Sql_4_Function: TAction
       Category = 'SQL'

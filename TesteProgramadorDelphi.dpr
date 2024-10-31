@@ -16,7 +16,9 @@ uses
   UnitDesafioSQL1 in 'UnitDesafioSQL1.pas' {DesafioSQL1_MR},
   UnitDesafioSQL1_scripts in 'UnitDesafioSQL1_scripts.pas' {DesafioSQL1_Scripts},
   UnitDesafioSQL2 in 'UnitDesafioSQL2.pas' {DesafioSQL2_Consulta},
-  UnitDesafioSQL2_scripts in 'UnitDesafioSQL2_scripts.pas' {DesafioSQL2_Scripts};
+  UnitDesafioSQL2_scripts in 'UnitDesafioSQL2_scripts.pas' {DesafioSQL2_Scripts},
+  UnitDesafioSQL3 in 'UnitDesafioSQL3.pas' {DesafioSQL2_StoredProcedure},
+  UnitDesafioSQL3_scripts in 'UnitDesafioSQL3_scripts.pas' {DesafioSQL3_Scripts};
 
 {$R *.res}
 
@@ -27,5 +29,7 @@ begin
   Application.Title := 'Keler Silva de Melo - Teste Programador Delphi';
   TStyleManager.TrySetStyle('Windows11 Impressive Dark');
   Application.CreateForm(TFormTesteProgramadorDelphi, FormTesteProgramadorDelphi);
+  Application.CreateForm(TDesafioSQL2_StoredProcedure, DesafioSQL2_StoredProcedure);
+  Application.CreateForm(TDesafioSQL3_Scripts, DesafioSQL3_Scripts);
   Application.Run;
 end.

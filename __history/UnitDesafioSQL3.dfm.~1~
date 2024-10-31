@@ -1,0 +1,14 @@
+object DesafioSQL2_StoredProcedure: TDesafioSQL2_StoredProcedure
+  Left = 0
+  Top = 0
+  Caption = 'Desafio SQL 3 - StoredProcedure '
+  ClientHeight = 474
+  ClientWidth = 624
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+end

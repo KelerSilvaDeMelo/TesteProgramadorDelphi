@@ -1,0 +1,42 @@
+unit UnitDesafioSQL3;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TDesafioSQL2_StoredProcedure = class(TForm)
+    GroupBoxDesafioSQL3: TGroupBox;
+    Memo2: TMemo;
+    Button11: TButton;
+
+  private
+    { Private symbols }
+    FAreaDeTrabalho: TWinControl;
+    FContagem: Integer;
+
+  public
+    { Public declarations }
+    procedure DefineAreaDeTrabalho(AreaDeTrabalho: TWinControl);
+  end;
+
+var
+  DesafioSQL2_StoredProcedure: TDesafioSQL2_StoredProcedure;
+
+implementation
+
+{$R *.dfm}
+
+{ TDesafioSQL2_StoredProcedure }
+
+{---------------------------------[ PÚBLICO ]----------------------------------}
+procedure TDesafioSQL2_StoredProcedure.DefineAreaDeTrabalho(
+  AreaDeTrabalho: TWinControl);
+begin
+  Self.FAreaDeTrabalho := AreaDeTrabalho;
+  Self.GroupBoxDesafioSQL3.Parent := Self.FAreaDeTrabalho;
+end;
+
+end.

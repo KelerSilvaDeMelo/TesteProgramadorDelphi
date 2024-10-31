@@ -159,6 +159,14 @@
             <Form>DesafioSQL2_Scripts</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="UnitDesafioSQL3.pas">
+            <Form>DesafioSQL2_StoredProcedure</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UnitDesafioSQL3_scripts.pas">
+            <Form>DesafioSQL3_Scripts</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
