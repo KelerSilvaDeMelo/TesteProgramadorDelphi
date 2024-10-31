@@ -1,0 +1,69 @@
+unit UnitDesafioDelphi5;
+
+interface
+
+const RequisitoDesafio5 =
+  'DESAFIO 5'#10#13#10#13+
+  '1. Receba uma expressão matemática como string (ex.: "10 + (2 * 3)").'#10#13+
+  '2. Valide se os parênteses estão corretamente balanceados. '#10#13+
+  '3. Avalie e retorne o resultado da expressão. ';
+
+const Posicoes = 6;
+
+procedure DesafioDelphi5;
+
+implementation
+
+uses
+  System.Classes, Vcl.Dialogs, System.SysUtils, System.Math, System.RTTI,
+  NewMathParser.Oper, NewMathParser;
+
+function ProcessaDesafio5(Expressao: String): String;
+var
+  ExpressaoLimpa, Resultado: String;
+  Calculo: TMathParser;
+begin
+  // Prepara variáveis de controle
+  Result := '';
+  ExpressaoLimpa := StringReplace(Expressao, ' ', '', [rfReplaceAll]);
+
+  // Avalia a expressão
+  Calculo := TMathParser.Create;
+  try
+    try
+      Calculo.Expression := ExpressaoLimpa;
+      if Calculo.Error.IsNoError then
+        Resultado := Calculo.ParserResult.ToString
+      else
+        Resultado := Calculo.Error.ToString;
+    except
+      on E: Exception do
+        Resultado := 'Expressão desbalanciada.';
+    end;
+  finally
+    Calculo.Free;
+  end;
+
+  // Monta o retorno amigável
+  Result := 'RESULTADO DO DESAFIO 5' + #13#10#13#10
+          + 'A avaliação da expressão retornou o seguinte resultado.' + #13#10
+          + Resultado;
+end;
+
+procedure DesafioDelphi5;
+var
+  Expressao, Resultado: String;
+  Calculo: Double;
+begin
+  Expressao := '10 + (2 * 3)';
+
+  ShowMessage( RequisitoDesafio5
+             + #13#10#13#10
+             + Expressao );
+
+  Resultado := ProcessaDesafio5(Expressao);
+  ShowMessage(Resultado);
+end;
+
+
+end.

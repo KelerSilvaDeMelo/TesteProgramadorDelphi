@@ -1,0 +1,41 @@
+unit UnitDesafioSQL1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Actions,
+  Vcl.ActnList;
+
+type
+  TDesafioSQL1 = class(TForm)
+    GroupBoxDesafioDelphi3: TGroupBox;
+    Memo2: TMemo;
+    Button11: TButton;
+    ActionList1: TActionList;
+    ActionEscreveCodigoSQL: TAction;
+    procedure ActionEscreveCodigoSQLExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DesafioSQL1: TDesafioSQL1;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDesafioSQL1_scripts;
+
+procedure TDesafioSQL1.ActionEscreveCodigoSQLExecute(Sender: TObject);
+begin
+  if not Assigned(DesafioSQL1_Scripts) then
+    Application.CreateForm(TDesafioSQL1_Scripts, DesafioSQL1_Scripts);
+
+  DesafioSQL1_Scripts.ShowModal;
+end;
+
+end.

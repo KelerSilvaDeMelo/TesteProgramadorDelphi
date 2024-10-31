@@ -1,0 +1,90 @@
+unit UnitDesafioDelphi5;
+
+interface
+
+const RequisitoDesafio5 =
+  'DESAFIO 5'#10#13#10#13+
+  '1. Receba uma expressão matemática como string (ex.: "10 + (2 * 3)").'#10#13+
+  '2. Valide se os parênteses estão corretamente balanceados. '#10#13+
+  '3. Avalie e retorne o resultado da expressão. ';
+
+const Posicoes = 6;
+
+procedure DesafioDelphi5;
+
+implementation
+
+uses
+  Vcl.Dialogs, System.SysUtils;
+
+function ProcessaDesafio5(ArrayDeNumeros: array of integer): String;
+var
+  Indice, Valor, Soma, MaiorValor, SegundoMaiorValor: Integer;
+begin
+  // Prepara variáveis de controle
+  Result := '';
+  Soma := 0;
+  MaiorValor := Low(Integer);
+  SegundoMaiorValor := Low(Integer);
+
+  for Indice := Low(ArrayDeNumeros) to High(ArrayDeNumeros) do
+  begin
+    // Extrai o valor do indice atual dentro do array
+    Valor := ArrayDeNumeros[Indice];
+
+    // Identifica o segundo maior valor da lista
+    if (Valor > MaiorValor) then
+    begin
+      SegundoMaiorValor := MaiorValor;
+      MaiorValor := Valor;
+    end
+    else if (Valor > SegundoMaiorValor) and (Valor < MaiorValor) then
+    begin
+      SegundoMaiorValor := Valor;
+    end;
+
+    // Soma todos os números pares
+    if (Valor mod 2 = 0) then
+      Inc(Soma, ArrayDeNumeros[Indice]);
+  end;
+
+  // Monta o retorno amigável
+  Result := 'RESULTADO DO DESAFIO 1' + #13#10#13#10
+          + 'O segundo maior número é ' + SegundoMaiorValor.ToString + #13#10
+          + 'A soma de todos os números é ' + Soma.ToString;
+end;
+
+function ArrayToString(ArrayDeNumeros: array of Integer): String;
+var
+  i: Integer;
+begin
+  Result := '';
+  for i := Low(ArrayDeNumeros) to High(ArrayDeNumeros) do
+  begin
+    Result := Result + IntToStr(ArrayDeNumeros[i]);
+    if i < High(ArrayDeNumeros) then
+      Result := Result + ', ';
+  end;
+  Result := '{' + Result + '}';
+end;
+
+procedure DesafioDelphi5;
+var
+  Indice: Integer;
+  ArrayDeNumeros: array of integer;
+  Resultado: String;
+begin
+  SetLength(ArrayDeNumeros, Posicoes);
+  for Indice := Low(ArrayDeNumeros) to High(ArrayDeNumeros) do
+    ArrayDeNumeros[Indice] := Random(100);
+
+  ShowMessage( RequisitoDesafio5
+             + #13#10#13#10
+             + ArrayToString(ArrayDeNumeros) );
+
+  Resultado := ProcessaDesafio5(ArrayDeNumeros);
+  ShowMessage(Resultado);
+end;
+
+
+end.

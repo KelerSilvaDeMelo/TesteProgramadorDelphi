@@ -1,0 +1,70 @@
+unit UnitDesafioDelphi2;
+
+interface
+
+const RequisitoDesafio2 =
+  'DESATIO 2'#10#13#10#13+
+  'Implemente uma função que receba uma string e retorne a mesma string com:'#10#13+
+  '1. As palavras em ordem inversa.'#10#13+
+  '2. A quantidade de vogais.';
+
+procedure DesafioDelphi2;
+
+implementation
+
+uses
+  Vcl.Dialogs, System.SysUtils;
+
+function ProcessaDesafio2(ArrayDeNumeros: array of integer): String;
+var
+  Indice, Valor, Soma, MaiorValor, SegundoMaiorValor: Integer;
+begin
+  // Prepara variáveis de controle
+  Result := '';
+  Soma := 0;
+  MaiorValor := Low(Integer);
+  SegundoMaiorValor := Low(Integer);
+
+  for Indice := Low(ArrayDeNumeros) to High(ArrayDeNumeros) do
+  begin
+    // Extrai o valor do indice atual dentro do array
+    Valor := ArrayDeNumeros[Indice];
+
+    // Identifica o segundo maior valor da lista
+    if (Valor > MaiorValor) then
+    begin
+      SegundoMaiorValor := MaiorValor;
+      MaiorValor := Valor;
+    end
+    else if (Valor > SegundoMaiorValor) and (Valor < MaiorValor) then
+    begin
+      SegundoMaiorValor := Valor;
+    end;
+
+    // Soma todos os números pares
+    if (Valor mod 2 = 0) then
+      Inc(Soma, ArrayDeNumeros[Indice]);
+  end;
+
+  // Monta o retorno amigável
+  Result := 'RESULTADO DO DESAFIO 1' + #13#10#13#10
+          + 'O segundo maior número é ' + SegundoMaiorValor.ToString + #13#10
+          + 'A soma de todos os números é ' + Soma.ToString;
+end;
+
+procedure DesafioDelphi2;
+var
+  Frase, Resultado: String;
+begin
+  Frase := 'Anotaram a data da maratona?';
+
+  ShowMessage( RequisitoDesafio2
+             + #13#10#13#10
+             + Frase );
+
+  Resultado := ProcessaDesafio2(Frase);
+  ShowMessage(Resultado);
+end;
+
+end.
+

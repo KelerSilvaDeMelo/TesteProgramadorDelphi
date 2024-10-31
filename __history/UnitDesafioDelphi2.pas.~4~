@@ -1,0 +1,65 @@
+unit UnitDesafioDelphi2;
+
+interface
+
+const RequisitoDesafio2 =
+  'DESAFIO 2'#10#13#10#13+
+  'Implemente uma função que receba uma string e retorne a mesma string com:'#10#13+
+  '1. As palavras em ordem inversa.'#10#13+
+  '2. A quantidade de vogais.';
+
+const Vogais = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú', 'â', 'ê', 'î', 'ô', 'û', 'ã', 'õ', 'à', 'ä', 'ë', 'ï', 'ö', 'ü'];
+
+procedure DesafioDelphi2;
+
+implementation
+
+uses
+  Vcl.Dialogs, System.SysUtils, System.StrUtils;
+
+function ProcessaDesafio2(Frase: String): String;
+var
+  Palavras: TArray<String>;
+  Palavra, PalavrasInversa, FraseMinuscula: String;
+  Indice, ContaVogais: Integer;
+  CharAtual: Char;
+begin
+  // Prepara variáveis de controle
+  Result := '';
+  Palavras := SplitString(Frase, ' ');
+  PalavrasInversa := '';
+  ContaVogais := 0;
+
+  for Indice := High(Palavras) downto Low(Palavras) do
+    PalavrasInversa := PalavrasInversa + ' ' + Trim(Palavras[Indice]);
+
+  FraseMinuscula := Frase.ToLower;
+  for Indice :=1 to FraseMinuscula.Length do
+  begin
+    CharAtual := Frase[Indice];
+    if CharInSet(CharAtual, Vogais) then
+      inc(ContaVogais);
+  end;
+
+  // Monta o retorno amigável
+  Result := 'RESULTADO DO DESAFIO 2' + #13#10#13#10
+          + 'As palavras em ordem inversa são: ' + PalavrasInversa + #13#10
+          + 'A quantidade de vogais é ' + ContaVogais.ToString;
+end;
+
+procedure DesafioDelphi2;
+var
+  Frase, Resultado: String;
+begin
+  Frase := 'Anotaram a data da maratona?';
+
+  ShowMessage( RequisitoDesafio2
+             + #13#10#13#10
+             + Frase );
+
+  Resultado := ProcessaDesafio2(Frase);
+  ShowMessage(Resultado);
+end;
+
+end.
+

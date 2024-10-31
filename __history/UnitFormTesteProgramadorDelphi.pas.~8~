@@ -1,0 +1,66 @@
+unit UnitFormTesteProgramadorDelphi;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Actions,
+  Vcl.ActnList, Vcl.ExtCtrls;
+
+type
+  TFormTesteProgramadorDelphi = class(TForm)
+    GroupBox1: TGroupBox;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    GroupBox2: TGroupBox;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    ActionList1: TActionList;
+    Action_Delphi_1_Array: TAction;
+    Action_Delphi_2_String: TAction;
+    Action_Delphi_3_Timer: TAction;
+    Action_Delphi_4_Classe: TAction;
+    Action_Delphi_5_Matematica: TAction;
+    Action_Delphi_6_Botao: TAction;
+    Action_Sql_1_ModeloRelacional: TAction;
+    Action_Sql_2_Query: TAction;
+    Action_Sql_3_StoredProcedure: TAction;
+    Action_Sql_4_Function: TAction;
+    BalloonHint1: TBalloonHint;
+    procedure Action_Delphi_1_ArrayExecute(Sender: TObject);
+    procedure Action_Delphi_2_StringExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormTesteProgramadorDelphi: TFormTesteProgramadorDelphi;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDesafioDelphi1, UnitDesafioDelphi2;
+
+{----------------------------------[ AÇÕES ]-----------------------------------}
+procedure TFormTesteProgramadorDelphi.Action_Delphi_1_ArrayExecute(
+  Sender: TObject);
+begin
+  DesafioDelphi1;
+end;
+
+procedure TFormTesteProgramadorDelphi.Action_Delphi_2_StringExecute(
+  Sender: TObject);
+begin
+  DesafioDelphi2;
+end;
+
+end.

@@ -1,0 +1,107 @@
+unit UnitDesafioDelphi4;
+
+interface
+
+const RequisitoDesafio4 =
+  'DESAFIO 4'#10#13#10#13+
+  'Crie uma classe chamada TPessoa com as seguintes propriedades:'#10#13+
+  '1. Nome (String)'#10#13+
+  '2. Idade (Inteiro)'#10#13+
+  'Implemente métodos Get e Set para cada propriedade.'#10#13+
+  'Implemente um método chamado ExibirInfo, que retorne uma string com o nome e a idade formatados.';
+
+type
+  TPessoa = class(TObject)
+  private
+    { Private symbols }
+    FNome: String;
+    FIdade: Integer;
+
+  private
+    { Private declarations }
+    procedure SetNome(const Value: String);
+    procedure SetIdade(const Value: Integer);
+
+  public
+    { Propriedades pública }
+    property Nome: String read FNome write SetNome;
+    property Idade: Integer read FIdade write SetIdade;
+
+  public
+    { Public declarations }
+    function ExibirInfo: String;
+
+  end;
+
+procedure DesafioDelphi4;
+
+implementation
+
+uses
+  Vcl.Dialogs, System.SysUtils, System.StrUtils, System.DateUtils;
+
+
+  { Desafio 4 }
+
+function ProcessaDesafio4(Nome: String; Nascimento: TDate): String;
+var
+  Pessoa: TPessoa;
+  Retorno: String;
+begin
+  // Prepara variáveis de controle
+  Pessoa := TPessoa.Create;
+  try
+    Pessoa.Nome := Nome;
+    Pessoa.Idade := YearsBetween(Nascimento, Now);
+    Retorno := Pessoa.ExibirInfo;
+  finally
+    Pessoa.Free;
+  end;
+
+  // Monta o retorno amigável
+  Result := 'RESULTADO DO DESAFIO 4' + #13#10#13#10
+          + Retorno;
+end;
+
+procedure DesafioDelphi4;
+var
+  Nome, Resultado: String;
+  Nascimento: TDate;
+begin
+  Nome := 'Elon Reeve Musk';
+  Nascimento := EncodeDate(1971, 6, 28);
+
+  ShowMessage( RequisitoDesafio4
+             + #13#10#13#10
+             + Nome+#13#10
+             + DateToStr(Nascimento) );
+
+  Resultado := ProcessaDesafio4(Nome, Nascimento);
+  ShowMessage(Resultado);
+end;
+
+
+{ TPessoa }
+
+{---------------------------------[ PÚBLICO ]----------------------------------}
+function TPessoa.ExibirInfo: String;
+begin
+  Result := 'Nome: ' + Self.FNome + #13#10
+          + 'Idade: ' + Self.FIdade.ToString;
+end;
+
+
+{-------------------------------[ PROPRIEDADES ]-------------------------------}
+procedure TPessoa.SetIdade(const Value: Integer);
+begin
+  FIdade := Value;
+end;
+
+procedure TPessoa.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+
+end.
+

@@ -1,0 +1,50 @@
+unit UnitDesafioDelphi4;
+
+interface
+
+const RequisitoDesafio4 =
+  'DESAFIO 4'#10#13#10#13+
+  'Crie uma classe chamada TPessoa com as seguintes propriedades:'#10#13+
+  '1. Nome (String)'#10#13+
+  '2. Idade (Inteiro)'#10#13+
+  'Implemente métodos Get e Set para cada propriedade e um método chamado ExibirInfo, que retorne uma string com o nome e a idade formatados.';
+
+procedure DesafioDelphi3;
+
+implementation
+
+uses
+  Vcl.Dialogs, System.SysUtils, System.StrUtils;
+
+function ProcessaDesafio4(Frase: String): String;
+var
+  Pessoa: TPessoa;
+begin
+  // Prepara variáveis de controle
+  Pessoa := TPessoa.Create;
+  Pessoa.Nome := 'Elon Musk';
+  Pessoa.Idade := 54;
+
+  // Monta o retorno amigável
+  Result := 'RESULTADO DO DESAFIO 4' + #13#10#13#10
+          + 'Palavras em ordem inversa: ' + Trim(PalavrasInversa) + #13#10
+          + 'Quantidade de vogais: ' + ContaVogais.ToString;
+end;
+
+procedure DesafioDelphi4;
+var
+  Frase, Resultado: String;
+begin
+  Frase := 'Anotaram a data da maratona';
+
+  ShowMessage( RequisitoDesafio4
+             + #13#10#13#10
+             + 'Elon Musk'#13#10
+             + '53' );
+
+  Resultado := ProcessaDesafio4(Frase);
+  ShowMessage(Resultado);
+end;
+
+end.
+

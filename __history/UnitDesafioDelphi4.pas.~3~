@@ -1,0 +1,102 @@
+unit UnitDesafioDelphi4;
+
+interface
+
+const RequisitoDesafio4 =
+  'DESAFIO 4'#10#13#10#13+
+  'Crie uma classe chamada TPessoa com as seguintes propriedades:'#10#13+
+  '1. Nome (String)'#10#13+
+  '2. Idade (Inteiro)'#10#13+
+  'Implemente métodos Get e Set para cada propriedade e um método chamado ExibirInfo, que retorne uma string com o nome e a idade formatados.';
+
+type
+  Pessoa = class(TObject)
+  private
+    { Private symbols }
+    FNome: String;
+    FIdade: Integer;
+
+  private
+    { Private declarations }
+    procedure SetNome(const Value: String);
+    procedure SetIdade(const Value: Integer);
+
+  public
+    { Propriedades pública }
+    property Nome: String read FNome write SetNome;
+    property Idade: Integer read FIdade write SetIdade;
+
+  public
+    { Public declarations }
+    function ExibirInfo: String;
+
+  end;
+
+procedure DesafioDelphi4;
+
+implementation
+
+uses
+  Vcl.Dialogs, System.SysUtils, System.StrUtils;
+
+{ Desafio 4 }
+
+function ProcessaDesafio4(Frase: String): String;
+var
+  Pessoa: TPessoa;
+  Retorno: String;
+begin
+  // Prepara variáveis de controle
+  Pessoa := TPessoa.Create;
+  try
+    Pessoa.Nome := 'Elon Musk';
+    Pessoa.Idade := 54;
+    Retorno := Pessoa.ExibirInfo;
+  finally
+    Pessoa.Free;
+  end;
+
+  // Monta o retorno amigável
+  Result := 'RESULTADO DO DESAFIO 4' + #13#10#13#10
+          + Retorno;
+end;
+
+procedure DesafioDelphi4;
+var
+  Frase, Resultado: String;
+begin
+  Frase := 'Anotaram a data da maratona';
+
+  ShowMessage( RequisitoDesafio4
+             + #13#10#13#10
+             + 'Elon Musk'#13#10
+             + '53' );
+
+  Resultado := ProcessaDesafio4(Frase);
+  ShowMessage(Resultado);
+end;
+
+
+{ Pessoa }
+
+{---------------------------------[ PÚBLICO ]----------------------------------}
+function Pessoa.ExibirInfo: String;
+begin
+  Result := 'Nome: ' + Self.FNome + #13#10
+          + 'Idade: ' + Self.FIdade.ToString;
+end;
+
+
+{-------------------------------[ PROPRIEDADES ]-------------------------------}
+procedure Pessoa.SetIdade(const Value: Integer);
+begin
+  FIdade := Value;
+end;
+
+procedure Pessoa.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+end.
+
