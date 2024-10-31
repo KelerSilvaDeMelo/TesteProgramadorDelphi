@@ -14,7 +14,9 @@ uses
   NewMathParser.Oper in 'libs\NewMathParser\NewMathParser.Oper.pas',
   UnitDesafioDelphi6 in 'UnitDesafioDelphi6.pas' {DesafioDelphi6OOP},
   UnitDesafioSQL1 in 'UnitDesafioSQL1.pas' {DesafioSQL1_MR},
-  UnitDesafioSQL1_scripts in 'UnitDesafioSQL1_scripts.pas' {DesafioSQL1_Scripts};
+  UnitDesafioSQL1_scripts in 'UnitDesafioSQL1_scripts.pas' {DesafioSQL1_Scripts},
+  UnitDesafioSQL2 in 'UnitDesafioSQL2.pas' {DesafioSQL2_Consulta},
+  UnitDesafioSQL2_scripts in 'UnitDesafioSQL2_scripts.pas' {DesafioSQL2_Scripts};
 
 {$R *.res}
 
@@ -25,6 +27,5 @@ begin
   Application.Title := 'Keler Silva de Melo - Teste Programador Delphi';
   TStyleManager.TrySetStyle('Windows11 Impressive Dark');
   Application.CreateForm(TFormTesteProgramadorDelphi, FormTesteProgramadorDelphi);
-  Application.CreateForm(TDesafioSQL1_Scripts, DesafioSQL1_Scripts);
   Application.Run;
 end.

@@ -168,6 +168,7 @@ object FormTesteProgramadorDelphi: TFormTesteProgramadorDelphi
       Category = 'SQL'
       Caption = 'Desafio com Consulta SQL'
       Hint = 'Habilidade de trabalhar com consultas SQL.'
+      OnExecute = Action_Sql_2_QueryExecute
     end
     object Action_Sql_3_StoredProcedure: TAction
       Category = 'SQL'

@@ -10,8 +10,9 @@ object DesafioSQL1_MR: TDesafioSQL1_MR
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
-  object GroupBoxDesafioDelphi3: TGroupBox
+  object GroupBoxDesafioSQL1: TGroupBox
     Left = 271
     Top = 8
     Width = 337

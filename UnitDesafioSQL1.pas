@@ -9,7 +9,7 @@ uses
 
 type
   TDesafioSQL1_MR = class(TForm)
-    GroupBoxDesafioDelphi3: TGroupBox;
+    GroupBoxDesafioSQL1: TGroupBox;
     Memo2: TMemo;
     Button11: TButton;
     ActionList1: TActionList;
@@ -41,6 +41,8 @@ implementation
 
 uses UnitDesafioSQL1_scripts;
 
+
+{---------------------------------[ INTERNO ]----------------------------------}
 procedure DesafioSQL1(AreaDeTrabalho: TWinControl);
 begin
   if not Assigned(DesafioSQL1_MR) then
@@ -49,18 +51,23 @@ begin
   DesafioSQL1_MR.DefineAreaDeTrabalho(AreaDeTrabalho);
 end;
 
+
+{----------------------------------[ AÇÕES ]-----------------------------------}
 procedure TDesafioSQL1_MR.ActionEscreveCodigoSQLExecute(Sender: TObject);
 begin
   if not Assigned(DesafioSQL1_Scripts) then
     Application.CreateForm(TDesafioSQL1_Scripts, DesafioSQL1_Scripts);
 
+  Self.GroupBoxDesafioSQL1.Parent := Self;
   DesafioSQL1_Scripts.ShowModal;
 end;
 
+
+{---------------------------------[ PÚBLICO ]----------------------------------}
 procedure TDesafioSQL1_MR.DefineAreaDeTrabalho(AreaDeTrabalho: TWinControl);
 begin
   Self.FAreaDeTrabalho := AreaDeTrabalho;
-  Self.GroupBoxDesafioDelphi3.Parent := Self.FAreaDeTrabalho;
+  Self.GroupBoxDesafioSQL1.Parent := Self.FAreaDeTrabalho;
 end;
 
 end.

@@ -2,7 +2,7 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
   Left = 0
   Top = 0
   Caption = 'Desafio SQL 1 - Modelo Relacional - SCRIPTS'
-  ClientHeight = 441
+  ClientHeight = 474
   ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,10 +16,11 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
     Left = 0
     Top = 0
     Width = 624
-    Height = 441
+    Height = 474
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
+    ExplicitHeight = 441
     object TabSheet1: TTabSheet
       Caption = 'Schema'
       object Panel1: TPanel
@@ -37,7 +38,7 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
         Left = 0
         Top = 41
         Width = 616
-        Height = 370
+        Height = 403
         Align = alClient
         Lines.Strings = (
           
@@ -156,6 +157,7 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 1
+        ExplicitHeight = 370
       end
     end
     object TabSheet2: TTabSheet
@@ -179,7 +181,7 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
         Left = 0
         Top = 41
         Width = 616
-        Height = 370
+        Height = 403
         Align = alClient
         Lines.Strings = (
           '-- Inserindo dados na tabela Clientes'
@@ -212,6 +214,7 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
         ScrollBars = ssVertical
         TabOrder = 1
         ExplicitTop = 47
+        ExplicitHeight = 370
       end
     end
     object TabSheet3: TTabSheet
@@ -231,7 +234,7 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
         Left = 0
         Top = 41
         Width = 616
-        Height = 370
+        Height = 403
         Align = alClient
         Lines.Strings = (
           '-- Excluindo o cliente com ID 1'
@@ -246,6 +249,7 @@ object DesafioSQL1_Scripts: TDesafioSQL1_Scripts
         ScrollBars = ssVertical
         TabOrder = 1
         ExplicitTop = 47
+        ExplicitHeight = 370
       end
     end
   end

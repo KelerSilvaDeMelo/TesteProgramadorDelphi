@@ -40,6 +40,7 @@ type
     procedure Action_Delphi_5_MatematicaExecute(Sender: TObject);
     procedure Action_Delphi_6_BotaoExecute(Sender: TObject);
     procedure Action_Sql_1_ModeloRelacionalExecute(Sender: TObject);
+    procedure Action_Sql_2_QueryExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,7 +55,8 @@ implementation
 {$R *.dfm}
 
 uses UnitDesafioDelphi1, UnitDesafioDelphi2, UnitDesafioDelphi3,
-  UnitDesafioDelphi4, UnitDesafioDelphi5, UnitDesafioDelphi6, UnitDesafioSQL1;
+  UnitDesafioDelphi4, UnitDesafioDelphi5, UnitDesafioDelphi6, UnitDesafioSQL1,
+  UnitDesafioSQL2;
 
 {----------------------------------[ AÇÕES ]-----------------------------------}
 procedure TFormTesteProgramadorDelphi.Action_Delphi_1_ArrayExecute(
@@ -97,6 +99,12 @@ procedure TFormTesteProgramadorDelphi.Action_Sql_1_ModeloRelacionalExecute(
   Sender: TObject);
 begin
   DesafioSQL1(Self);
+end;
+
+procedure TFormTesteProgramadorDelphi.Action_Sql_2_QueryExecute(
+  Sender: TObject);
+begin
+  DesafioSQL2(Self);
 end;
 
 end.
